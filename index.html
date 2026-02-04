@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Puvi</title>
+    <style>
+        body {
+            background-color: #fce4ec;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+            touch-action: none;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(255, 64, 129, 0.2);
+            text-align: center;
+            width: 85%;
+            max-width: 320px;
+        }
+
+        .cat-gif {
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+            border-radius: 15px;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            color: #d81b60;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            position: relative;
+            height: 140px; 
+        }
+
+        button {
+            padding: 12px 40px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.1s;
+        }
+
+        #yesButton {
+            background-color: #ff4081;
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 64, 129, 0.4);
+            z-index: 2;
+        }
+
+        #noButton {
+            background-color: #f0f0f0;
+            color: #888;
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card" id="main-card">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMmo3cjZidm90Z3Y0Z3ZueG5qZzZueG5qZzZueG5qZzZueG5qZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/MDJ9IbxxvDUQM/giphy.gif" class="cat-gif" alt="Cute Cat">
+        
+        <h1>Puvi, will you be my valentine?</h1>
+        
+        <div class="button-container">
+            <button id="yesButton" onclick="celebrate()">Yes</button>
+            <button id="noButton" onmouseover="moveButton()" ontouchstart="moveButton()">No</button>
+        </div>
+    </div>
+
+    <script>
+        function moveButton() {
+            const noBtn = document.getElementById('noButton');
+            const x = Math.random() * (window.innerWidth - noBtn.offsetWidth - 40) + 20;
+            const y = Math.random() * (window.innerHeight - noBtn.offsetHeight - 40) + 20;
+            
+            noBtn.style.position = "fixed";
+            noBtn.style.left = x + "px";
+            noBtn.style.top = y + "px";
+        }
+
+        function celebrate() {
+            const card = document.getElementById('main-card');
+            
+            // Phase 2 GIF with the specific text order you requested
+            card.innerHTML = `
+                <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHYxeXhpZ3RkeXp6eXp6eXp6eXp6eXp6eXp6eXp6eXp6ZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/KztT2c4u8mYYUiMKdJ/giphy.gif" class="cat-gif">
+                <h1 style="color: #ff4081;">HAPPY VALENTINE'S DAY! ❤️</h1>
+                <p style="color: #666; font-weight: bold; font-size: 1.1rem;">
+                    I knew you'd say yes! <br>
+                    I love you baby 😘💕✨
+                </p>
+            `;
+        }
+    </script>
+
+</body>
+</html>
